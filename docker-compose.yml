@@ -4,7 +4,6 @@ services:
   db:
     image: postgres:latest
     hostname: 'db'
-    container_name: 'db'
     ports:
       - '5432:5432'
     volumes:
@@ -13,7 +12,6 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     hostname: 'dbadmin'
-    container_name: 'dbadmin'
     ports:
       - '5050:80'
     links:
@@ -28,7 +26,6 @@ services:
   django:
     build: .
     hostname: 'django'
-    container_name: 'django'
     command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
